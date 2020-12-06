@@ -11,11 +11,11 @@ namespace LAB3
         /// </summary>
         [STAThread]
         static void Main() {
-            for (int i = 10; i < 150; i+= 10)
+            for (int i = 0; i < 160; i+= 10)
             {
-                Random rnd = new Random(123);
                 Console.WriteLine("New iteration. i = :{0}", i);
-                Compute.Run(25, i, 10, 70, rnd);
+                Random rnd = new Random(123);
+                Compute.Run(i, 100, 10, 70, rnd);
                 Console.WriteLine('\n');
             }
             // Compute.Run(25, 100, 10, 40);
@@ -109,12 +109,10 @@ namespace LAB3
     internal struct Task
     {
         public int id { get; private set; }
-        public int CreationTime { get; private set; }
         public int ExecutionTime { get; private set; }
         public Task(int id, int creationTime, int executionTime)
         {
             this.id = id;
-            this.CreationTime = creationTime;
             this.ExecutionTime = executionTime;
         }
     }
